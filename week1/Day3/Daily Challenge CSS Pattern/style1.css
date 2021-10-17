@@ -1,0 +1,64 @@
+
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    grid-template-rows: repeat(6 , 100px);
+    gap: 10px 20px;
+    
+
+    grid-template-areas:
+        'header header header'
+        'hero  mainContent mainContent'
+        'hero  mainContent mainContent'
+        'sidebar  extraContent extraContent '
+       
+       
+        
+    
+   
+}
+
+
+
+
+.header1{
+    grid-area: header;
+   background-color: blue;
+}
+
+.hero1{
+    grid-area: hero;
+    background-color: plum;
+}
+
+.mainContent1{
+    grid-area: mainContent;
+    background-color: rgb(255, 251, 0);
+}
+
+.sidebar1{
+    grid-area: sidebar;
+    background-color: greenyellow;
+}
+
+.extraContent1{
+    grid-area: extraContent;
+    background-color: grey;
+}
+
+.relatedImages1{
+    grid-area: relatedImages;
+    background-color: green;
+}
+
+.RelatedPosts1{
+    grid-area: RelatedPosts;
+    background-color: pink;
+        
+}
+.footer1{
+    grid-area: footer;
+    background-color: orange;
+        
+}
