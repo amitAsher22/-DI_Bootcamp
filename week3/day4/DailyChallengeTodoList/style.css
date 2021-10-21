@@ -5,3 +5,18 @@
     background-color: rgb(226, 90, 90);
 
 }
+
+
+
+.BTNdiv{
+    display: inline;
+    background-color: white;
+    width: 5vw;
+}
+
+.BTNdiv > button{
+    width: 1.5vw;
+    height: 3vh;
+    margin: 3px;
+    border: none;
+}
