@@ -83,22 +83,37 @@
 // Star Trek: The Next Generation. 
 // Use filter() to filter the array of characters below 
 
-const characters = [
-  { name: 'James T. Kirk', series: ['Star Trek'] },
-  { name: 'Spock', series: ['Star Trek', 'Star Trek: The Next Generation'] },
-  { name: 'Jean-Luc Picard', series: ['Star Trek: The Next Generation'] },
-  { name: 'Worf', series: ['Star Trek: The Next Generation', 'Star Trek: Deep Space Nine'] }
-];
+// const characters = [
+//   { name: 'James T. Kirk', series: ['Star Trek'] },
+//   { name: 'Spock', series: ['Star Trek', 'Star Trek: The Next Generation'] },
+//   { name: 'Jean-Luc Picard', series: ['Star Trek: The Next Generation'] },
+//   { name: 'Worf', series: ['Star Trek: The Next Generation', 'Star Trek: Deep Space Nine'] }
+// ];
 
 
-// let takeOnlyPosition = numbers.filter(function (element) {
-//     if(element > 0) {
-//         return element
-//     }
-// })
+// // let takeOnlyPosition = numbers.filter(function (element) {
+// //     if(element > 0) {
+// //         return element
+// //     }
+// // })
 
-// console.log(takeOnlyPosition);
+// // console.log(takeOnlyPosition);
 
-let NextGeneration = characters.filter(element => element["series"].includes("Star Trek: The Next Generation"))
+// let NextGeneration = characters.filter(element => element["series"].includes("Star Trek: The Next Generation"))
     
-console.log(NextGeneration);
+// console.log(NextGeneration);
+
+
+
+////////////////////////////////////// ex gold
+
+// Exercise 1 : Analyzing The Map Method
+// Instructions
+// Analyze this code, what will be the output ?
+
+// [1, 2, 3].map(num => {
+//   if (typeof num === 'number') return num * 2;
+//   return ;
+// });
+
+//// return 2 , 4, 6
