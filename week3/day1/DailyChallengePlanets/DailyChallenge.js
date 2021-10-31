@@ -20,13 +20,13 @@
 
 //  For each planet in the array
 
- planetsofthesolarsystem.forEach(item => {
-    let createDiv = document.createElement("div");
-    createDiv.setAttribute("class" , "planet")
-    createDiv.textContent= item;
-    createDiv.classList.add(item)
-    listPlanetsHtml.appendChild(createDiv)
-});
+//  planetsofthesolarsystem.forEach(item => {
+//     let createDiv = document.createElement("div");
+//     createDiv.setAttribute("class" , "planet")
+//     createDiv.textContent= item;
+//     createDiv.classList.add(item)
+//     listPlanetsHtml.appendChild(createDiv)
+// });
 
 // create a <div> using createElement
 // This div should have a class named "planet".
@@ -34,3 +34,7 @@
 
 
 // console.log(createDiv);
+
+
+
+
