@@ -64,9 +64,12 @@ let marioGame = {
 
 // Convert this JS object into a JSON object. What happens to the nested objects ?
 
-let converToJASON = JSON.stringify(marioGame) /// this way eazy pass and get data from server.
+// let converToJASON = JSON.stringify(marioGame) /// this way eazy pass and get data from server.
 
-// Convert and pretty print this JS object into a JSON object. Hint : Check out the JSON lesson on the platform
-// Use your web inspector to add a breakpoint. Check the values of the JSON object in the debugger.
-var jsonPretty = JSON.stringify(JSON.parse(converToJASON),null,2)
-console.log(jsonPretty);
+// // Convert and pretty print this JS object into a JSON object. Hint : Check out the JSON lesson on the platform
+// // Use your web inspector to add a breakpoint. Check the values of the JSON object in the debugger.
+// var jsonPretty = JSON.stringify(JSON.parse(converToJASON),null,2)
+// console.log(jsonPretty);
+
+
+
