@@ -23,9 +23,10 @@ xhr.onload = function() {
     } else {
         console.log("Finished Loading")
         showDetails(xhr.response)
-       
+
     }
 };
+buttonGo.addEventListener("click" , deleteAll(xhr.response))
 
 })
 
@@ -50,5 +51,7 @@ function showDetails(array){
 
 
 
-
+function deleteAll(arrayFromData){
+  console.log(arrayFromData.data);
+}
 
