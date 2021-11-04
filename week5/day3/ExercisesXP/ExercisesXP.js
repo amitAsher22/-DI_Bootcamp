@@ -116,6 +116,42 @@
 //                 console.log(new Error("Boo!"))
 //             )
 //         }
-            
-
 // }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////// mission yesterday
+
+
+// fetch("http://random-word-api.herokuapp.com/word?number=1")
+//   .then((res) => res.json())
+//   .then((res) => res[0])
+//   .then((word) => {
+//     console.log(word);
+//     fetch(
+//       `https://api.giphy.com/v1/gifs/random?tag=${word}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
+//     )
+//       .then((res) => res.json())
+//       .then((res) => {
+//         if (res.data.length == 0) {
+//           return fetch(
+//             `https://api.giphy.com/v1/gifs/random?tag=404_ERROR&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
+//           ).then((res) => res.json());
+//         } else {
+//           return res;
+//         }
+//       })
+//       .then((res) => {
+//         let main = document.getElementById("main");
+//         let newImg = document.createElement("img");
+//         console.log(res.data);
+//         newImg.setAttribute("src", res.data.images.downsized_large.url);
+//         main.appendChild(newImg);
+//       })
+//       .catch((err) => console.log(err));
+//   })
+//   .catch((err) => console.log(err));
+
+
+let url = "http://random-word-api.herokuapp.com/word?number=1"
+
