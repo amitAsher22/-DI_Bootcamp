@@ -2,29 +2,27 @@
 let url = "https://swapi.dev/api/people";
 let button = document.querySelector(".btnSomeOne");
 let container = document.querySelector(".container")
+let fontLoading = document.getElementById("fontLoading")
 
 
-// async function getApi(url){
-//   let response = await fetch(url);
-//   let data = await response.json();
-//  let arrayPeople = await data.results
-
-// }
-
-// getApi(url)
 
 
 button.addEventListener("click" , getDataFromUrl)
 
 async function getDataFromUrl(){
+    fontLoading.style.display = "none"
     let randomNum = Math.floor((Math.random() * 82) + 1);
     let response = await fetch("https://swapi.dev/api/people/" + randomNum);
     let data = await response.json()
-    
     randomData(data)
+  
+  
    
 
 }
+
+
+
 
 async function randomData(data){
     console.log(data);
