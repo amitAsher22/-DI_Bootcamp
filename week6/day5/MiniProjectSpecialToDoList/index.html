@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Special To Do List</h1>
+    <div id="container">
+        <form id="form">
+           
+            <label for="Name">Name: </label> <input placeholder="name of task" type="text" id="Name">
+                     
+            <label for="Description">Description: </label><input placeholder="Description" type="text" id="Description">
+                      
+            <label for="date">Start date and time: </label> <input placeholder="Start date and time" type="datetime-local" id="StartdayeAndTime">
+                     
+             <label for="date">End date and time: </label> <input placeholder="End date and time" type="datetime-local" id="EnddayeAndTime">
+
+                 <label for="true">true</label>
+                <input type="checkbox" value="true" id="true"  > 
+                
+                <label for="false">false</label> 
+                <input type="checkbox" value="false" id="false" > 
+          
+            
+           <button id="add">Add to list</button>
+        </form>
+
+    </div>
+    <div id="listOfTasks">
+
+    </div>
+    <script src="add.js"></script>
+</body>
+</html>

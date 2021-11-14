@@ -1,0 +1,15 @@
+{
+  "name": "exersicexp",
+  "version": "1.0.0",
+  "description": "this is exersies xp to practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon npm-node/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
