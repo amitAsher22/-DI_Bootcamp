@@ -16,4 +16,8 @@ let c = 6;
 x = a + b
 y = x + c
 console.log(`first run ${x}`);
-console.log(`second run ${y}`);
+
+
+setTimeout(()=>{
+    console.log(`second run ${y}`);
+},3000)
