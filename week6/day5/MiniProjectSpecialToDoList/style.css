@@ -42,3 +42,7 @@ label{
     color: white;
     cursor: pointer;
 }
+
+#listOfTasks{
+    border: black solid 1px;
+}

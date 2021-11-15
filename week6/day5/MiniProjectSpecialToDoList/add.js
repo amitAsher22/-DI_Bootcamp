@@ -6,6 +6,7 @@ let EnddayeAndTime = document.getElementById('EnddayeAndTime');
 let BtnAdd = document.getElementById('add');
 let trueCheack = document.getElementById('true');
 let falseCheack = document.getElementById('false');
+let listOfTasks = document.getElementById('listOfTasks');
 
 
 
@@ -21,6 +22,10 @@ BtnAdd.addEventListener('click', function(e){
         let EnddayeAndTimeOfTask = EnddayeAndTime.value;
         let cheackBoxTrue = trueCheack.value;
         let cheackBoxfalse = falseCheack.value;
+        let p =document.createElement('p');
+        
+      
+
  
     }
 })
