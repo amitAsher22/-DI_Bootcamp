@@ -1,8 +1,12 @@
-let express = require('express');
+let exp = require('express');
 
-let app = express()
 
-app.use(express.static(__dirname));
+
+
+let app = exp()
+
+app.use('/form', exp.static(__dirname + '/public'  ));
+
 
 app.get('/aboutMe/:hobby' , (req, res)=>{
 
@@ -12,17 +16,28 @@ app.get('/aboutMe/:hobby' , (req, res)=>{
 })
 
 app.get('/pic' , (req, res)=>{
- 
-  res.sendFile(__dirname  + '/public/' + 'index.html')
 
- 
-})
-
-app.get('/form' , (req, res)=>{
-res.sendFile(__dirname + '/public/' + 'twoindex.html');
-console.log(req.body)
+  res.set('Content-Type', 'node.png');
+    res.sendFile(__dirname + "/public/node.png");
+  
 
 })
 
 
-app.listen(3000)
+app.get('/formData' , (req,res)=>{
+  
+  let email = req.query.email;
+  let message = req.query.message;
+res.send(`${email} ${message}`)
+ 
+})
+
+app.listen(3000 , ()=>{
+  console.log('listening port 3000');
+})
+
+
+
+
+
+
