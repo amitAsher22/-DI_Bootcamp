@@ -32,18 +32,18 @@ fetch('http://localhost:3000/show')
 .then(res => res.json())
 .then(data=>{
     console.log( "data from script", data);
-    // showUsers(data)
+    showUsers(data)
 })
 
 }
 
 
-// function showUsers(data) {
-//     let root = document.getElementById('root');
-//     root.innerHTML = "";
-//     data.forEach(item =>{
-//       let div = document.createElement('div');
-//       div.innerText= item.user;
-//       root.appendChild(div)
-//     })
-//   }
+function showUsers(data) {
+    let root = document.getElementById('root');
+    root.innerHTML = "";
+    data.forEach(item =>{
+      let div = document.createElement('div');
+      div.innerText= item.nameOfUser;
+      root.appendChild(div)
+    })
+  }
