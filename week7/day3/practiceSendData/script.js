@@ -41,9 +41,9 @@ fetch('http://localhost:3000/show')
 function showUsers(data) {
     let root = document.getElementById('root');
     root.innerHTML = "";
-    data.forEach(item =>{
+    data.forEach(item  =>{
       let div = document.createElement('div');
-      div.innerText= item.nameOfUser;
+      div.innerText=  item.nameOfUser;
       root.appendChild(div)
     })
   }
