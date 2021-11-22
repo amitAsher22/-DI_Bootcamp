@@ -1,8 +1,9 @@
 import React from "react" ;
-
 import logo from './logo.svg';
 
-const mystyle = {
+
+const mystyle = 
+{
     color: 'white',
     background : 'DodgerBlue',
     padding : '10px',
@@ -15,7 +16,7 @@ const Mycomponents = ()=>{
     return(
          <div className="center">
          <h1 className="red">this is Header</h1>
-         <p>this is a Paragraph</p>
+        <p style = {mystyle}>this is a Paragraph</p>
          <a href="/">this is a link</a>
          <h2>this is a form</h2>
          <form>
@@ -31,9 +32,6 @@ const Mycomponents = ()=>{
              <li>milk</li>
          </ul>
         </div>
-    
-
-
     )
         
 }
