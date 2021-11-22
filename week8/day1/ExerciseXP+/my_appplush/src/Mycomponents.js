@@ -10,6 +10,17 @@ const mystyle =
     fontfamily: 'Arial'
 }
 
+const mySuperStyles = 
+{
+    color :'yellow',
+    fontSize : '16px',
+    fontWeight : 'bold',
+    border : '1px solid yellow',
+    backgroundColor : 'black',
+    padding : '5px',
+    borderRadius:'8px',
+    margin : '10px'
+}
 
 
 const Mycomponents = ()=>{
@@ -21,7 +32,7 @@ const Mycomponents = ()=>{
          <h2>this is a form</h2>
          <form>
              <label>Enter your name:</label>
-             <input type="text" /> <button>submit</button>
+             <input type="text" /> <button style = {mySuperStyles}>submit</button>
          </form>
          <h2>Here is an image:</h2>
          <img src={logo} width="100" height="50" alt="img" />
