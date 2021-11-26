@@ -7,19 +7,26 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      text: 'the content of a textarea goes in the value attribute',
+      text: '',
       options: ['volvo', 'ford', 'fiat', 'mazda'],
-
 
     };
   }
+
+  handelChange = (event) => {
+    this.setState({
+      text: event.target.value
+  
+    })
+  }
+
 
   render() {
     const { options, text } = this.state
 
     return (
       <div className="App">
-        <textarea value={text} />
+        <textarea value={text} onChange={this.handelChange} />
 
         <div>
           <select>
