@@ -8,7 +8,7 @@ class BooksList extends Component {
 
     return (
       books.map((item, index) => (
-     
+       
         <div key={index} className="card"  style={{ width: "12rem"}}>
           <img className="card-img-top" src={item.volumeInfo.imageLinks.thumbnail} alt="Card img book" />
           <div className="card-body">
@@ -16,6 +16,7 @@ class BooksList extends Component {
             <p className="card-text">published : {item.volumeInfo.publishedDate}</p>
           </div>
         </div>
+        
       
       ))
     )

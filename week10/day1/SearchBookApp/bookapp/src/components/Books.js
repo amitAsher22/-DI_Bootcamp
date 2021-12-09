@@ -2,19 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { dataFromApi } from '../redux/actions'
 import BooksList from './BooksList'
+import '../App.css';
 
 class Books extends React.Component {
 
-   componentDidMount() {
-      this.props.dataFromApi()
-   }
-
-   
+   // componentDidMount() {
+   //    this.props.dataFromApi()
+   // }
 
    render() {
       const { books } = this.props;
       return (
-         <div>
+         <div className="card1" >
             <BooksList books={books} />
          </div>
       )

@@ -8,9 +8,9 @@ function App() {
     <>
     <div className="App">
       <h1 className="title">Google Books Search</h1>
-      <Search/>
+      <Search className="card"/>
     </div>
-    <Books/>
+    <Books />
     </>
     
   );
