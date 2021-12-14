@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import '../AddOwners.css'
 import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
+import { connect } from "react-redux";
+import {setOwners} from '../reducers/action'
 
 
 
-const AddOwners = () => {
+const AddOwners = (props) => {
 
-const GetData = (e) =>{
+const SetData = (e) =>{
     e.preventDefault()
     const FirstName = e.target.firstName.value;
     const LastName = e.target.LastName.value;
@@ -19,7 +21,10 @@ const GetData = (e) =>{
     const url = e.target.url.value;
     const imgFile = e.target.imgFile.value;
     const select = categories;
-    
+     
+    props.setdata({FirstName,LastName,address,Starttime,Endtime,number,sentence,url,imgFile,select})
+
+//   props.setdata(dataOfOwners)
 
 }
 
@@ -28,7 +33,7 @@ const GetData = (e) =>{
     return (
         <>
 
-            <div  onSubmit={GetData}   className="coverForm">
+            <div  onSubmit={SetData}   className="coverForm">
 
                 <form  className="form" >
                     <div className="titleAddOwners" >
@@ -45,7 +50,7 @@ const GetData = (e) =>{
                     <input type="text" name="LastName" placeholder="Last Name" />
 
                     <label>address</label>
-                    <input type="text" name="address" placeholder="bar Ilan 2/42" />
+                    <input type="text" name="address" placeholder="bar Ilan 2/42 , Herzeliya" />
 
                     <label>active time from:</label>
                     <input type="time" name="Starttime" />
@@ -88,8 +93,23 @@ const GetData = (e) =>{
         </>
     )
 
-
-
 }
 
-export default AddOwners
+
+
+
+const mapStateToProps = (state) =>{
+    return{
+      dataOwners : state.AllOwners
+    } 
+   }
+    const mapDispatchToProps =(dispatch) =>{
+        return{
+            setdata: (data)=> dispatch(setOwners(data))
+        }    
+    }
+
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(AddOwners)

@@ -17,8 +17,16 @@ const db = require('knex')({
        
   }
 
+
+ const setOwners = ({FirstName,LastName,address,Starttime,number,sentence,url,imgFile,select})=>{
+    return db("privaowners")
+    .insert([{name_of_business_owner:FirstName ,lastname_of_business_owner:LastName , address: address ,activity_time:Starttime ,phone:number , business_opening_sentence:sentence,address_home_page: url , image :imgFile ,category_of_business_owner:select}])
+    .returning("*")
+  }
+
  module.exports = {
-   getOwners
+   getOwners,
+   setOwners
   }
  
 
