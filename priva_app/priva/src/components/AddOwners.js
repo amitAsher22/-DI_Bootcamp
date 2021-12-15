@@ -3,7 +3,7 @@ import '../AddOwners.css'
 import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
-import {setOwners} from '../reducers/action'
+import {setOwners , getOwners} from '../reducers/action'
 
 
 
@@ -27,6 +27,8 @@ const SetData = (e) =>{
 //   props.setdata(dataOfOwners)
 
 }
+
+
 
 
     const [categories, setCategory] = useState('');
@@ -84,6 +86,7 @@ const SetData = (e) =>{
                     <input type="file" name="imgFile" />
 
                     <button className="btnAddOwners">Add to Website</button>
+                   
 
                 </form>
             </div>
@@ -105,7 +108,8 @@ const mapStateToProps = (state) =>{
    }
     const mapDispatchToProps =(dispatch) =>{
         return{
-            setdata: (data)=> dispatch(setOwners(data))
+            setdata: (data)=> dispatch(setOwners(data)),
+            getOwners: ()=> dispatch(getOwners())
         }    
     }
 

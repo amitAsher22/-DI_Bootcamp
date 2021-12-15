@@ -1,13 +1,16 @@
-import React from "react";
+import React  from "react";
 import logo from '../images/logo.png'
 import Categories from "./Categories";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { connect } from "react-redux";
+import { getOwners} from '../reducers/action'
+import ShowAllOwners from "./ShowAllOwners";
 
 
 
-class Home extends React.Component{
 
-    render(){
+
+const Home =()=>{
         return(
             <div>
             <div className="coverPic">
@@ -29,10 +32,31 @@ class Home extends React.Component{
             <div className="coverCategories">
                 <Categories/>
             </div>
+            <div>
+                <ShowAllOwners />
+            </div>
             </div>
         )
-    }
+    
 }
 
 
-export default Home
+
+const mapStateToProps = (state) =>{
+    return{
+      dataOwners : state.getOwners
+    } 
+   }
+    const mapDispatchToProps =(dispatch) =>{
+        return{
+           
+            getOwners: ()=> dispatch(getOwners())
+        }    
+    }
+
+
+
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home)

@@ -10,6 +10,14 @@ const db = require('knex')({
   });
 
 
+const getIdOwner = ()=>{
+  return db('privaowners')
+  .where('owner_id' ,11 )
+  
+  
+}
+
+
   const getOwners = ()=>{
      return db('privaowners')
        .select('*')
@@ -18,9 +26,9 @@ const db = require('knex')({
   }
 
 
- const setOwners = ({FirstName,LastName,address,Starttime,number,sentence,url,imgFile,select})=>{
+ const setOwners = ({FirstName,LastName,address,Starttime,Endtime,number,sentence,url,select})=>{
     return db("privaowners")
-    .insert([{name_of_business_owner:FirstName ,lastname_of_business_owner:LastName , address: address ,activity_time:Starttime ,phone:number , business_opening_sentence:sentence,address_home_page: url , image :imgFile ,category_of_business_owner:select}])
+    .insert([{name_of_business_owner:FirstName ,lastname_of_business_owner:LastName , address: address ,activity_time:Starttime ,activity_time_end:Endtime, phone:number , business_opening_sentence:sentence,address_home_page: url  ,category_of_business_owner:select}])
     .returning("*")
   }
 
