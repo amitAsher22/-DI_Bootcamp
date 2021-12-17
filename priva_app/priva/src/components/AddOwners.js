@@ -19,10 +19,10 @@ const SetData = (e) =>{
     const number = e.target.number.value;
     const sentence = e.target.sentence.value;
     const url = e.target.url.value;
-    const imgFile = e.target.imgFile.value;
+    // const imgFile = e.target.imgFile.value;
     const select = categories;
-     
-    props.setdata({FirstName,LastName,address,Starttime,Endtime,number,sentence,url,imgFile,select})
+     alert('you add To System')
+    props.setdata({FirstName,LastName,address,Starttime,Endtime,number,sentence,url,select})
 
 //   props.setdata(dataOfOwners)
 
@@ -35,7 +35,7 @@ const SetData = (e) =>{
     return (
         <>
 
-            <div  onSubmit={SetData}   className="coverForm">
+            <div onSubmit={SetData} className="coverForm">
 
                 <form  className="form" >
                     <div className="titleAddOwners" >
@@ -83,9 +83,9 @@ const SetData = (e) =>{
 
 
                     <label>your image</label>
-                    <input type="file" name="imgFile" />
+                    <input type="file"  name="imgFile" />
 
-                    <button className="btnAddOwners">Add to Website</button>
+                    <button  className="btnAddOwners">Add to Website</button>
                    
 
                 </form>

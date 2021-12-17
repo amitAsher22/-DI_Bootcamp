@@ -9,10 +9,21 @@ const db = require('knex')({
     }
   });
 
-
-const getIdOwner = ()=>{
+const deleteOwner = (id)=>{
   return db('privaowners')
-  .where('owner_id' ,11 )
+  .where('privaowners.owner_id' , id)
+  .del()
+}
+
+// knex('accounts')
+//   .where('activated', false)
+//   .del()
+
+const getIdOwner = (id)=>{
+  return db('privaowners')
+  .select("*")
+  .from("privaowners")
+  .where('owner_id' ,id )
   
   
 }
@@ -34,7 +45,9 @@ const getIdOwner = ()=>{
 
  module.exports = {
    getOwners,
-   setOwners
+   setOwners,
+   getIdOwner,
+   deleteOwner
   }
  
 

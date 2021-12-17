@@ -1,4 +1,7 @@
 
+
+
+
 .header{
   display: flex;
   flex-direction: row;
@@ -6,9 +9,6 @@
   align-items:  center;
   align-content:flex-end
  
-
- 
-  
 }
 
 .coverPic{
@@ -16,7 +16,7 @@
   background-repeat: no-repeat;
   background-size: auto;
   background-size: 100% 100%;
-  width: 100vw;
+  width: 100%;
   height: 80vh;
  
   /* min-height:80vh; 
@@ -161,3 +161,11 @@ ul{
  .btnOwners:hover{
    cursor: pointer;
  }
+
+ /* /////////////////////////////////////////////////////// showAllOwnsers */
+
+.mainComponentsShowAllOwners{
+  display: flex;
+  flex-direction: row;
+ 
+}

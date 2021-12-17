@@ -12,7 +12,7 @@ import ShowAllOwners from "./ShowAllOwners";
 
 const Home =()=>{
         return(
-            <div>
+            <div >
             <div className="coverPic">
                 <div className="header">
                 <button className="btnRegister"> Login / LogOut</button>
@@ -32,7 +32,7 @@ const Home =()=>{
             <div className="coverCategories">
                 <Categories/>
             </div>
-            <div>
+            <div  >
                 <ShowAllOwners />
             </div>
             </div>

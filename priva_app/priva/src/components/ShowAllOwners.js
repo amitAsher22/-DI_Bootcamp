@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import '../showAllOwnersStyle.css'
+import '../showAllOwnersStyle.css';
+import {FaStreetView} from 'react-icons/fa'
+import {BsFillTelephoneFill} from 'react-icons/bs'
+import {BiCategory} from 'react-icons/bi'
+import {GoClock} from 'react-icons/go'
+import {MdFilePresent} from 'react-icons/md'
+import {FcVoicePresentation} from 'react-icons/fc'
+
 
 
 
@@ -27,14 +34,15 @@ const ShowAllOwners = () => {
             owners.map(owner => 
                 <div className="divOwner" key={owner.owner_id} >
                 <Link to={'Owner/'+ owner.owner_id}>
-                <p>full name : {owner.name_of_business_owner}{owner.lastname_of_business_owner}</p> 
-                <p>address: {owner.address}</p> 
-                <p>phone: {owner.phone}</p> 
-                <p>your category: {owner.category_of_business_owner}</p> 
-                <p>open: {owner.activity_time}</p> 
-                <p>close: {owner.activity_time_end}</p> 
-                <p>address home page : {owner.address_home_page}</p> 
-                <span>close: {owner.business_opening_sentence}</span> 
+                <p className="titleName"> {owner.name_of_business_owner} {owner.lastname_of_business_owner}</p> 
+                <FcVoicePresentation/> <span className="sentence"> "{owner.business_opening_sentence}"</span> 
+                <div className="lower_container">
+                <p><FaStreetView/> {owner.address}</p> 
+                <p><BsFillTelephoneFill/> {owner.phone}</p> 
+                <p><BiCategory/> {owner.category_of_business_owner}</p> 
+                <p><GoClock/> {owner.activity_time} to  {owner.activity_time_end}</p> 
+                <p><MdFilePresent/> {owner.address_home_page}</p> 
+                </div>
                 </Link>
                 </div>
                 
