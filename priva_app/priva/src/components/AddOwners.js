@@ -4,11 +4,14 @@ import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import {setOwners , getOwners} from '../reducers/action'
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const AddOwners = (props) => {
-
+    let history = useNavigate();
+    
 const SetData = (e) =>{
     e.preventDefault()
     const FirstName = e.target.firstName.value;
@@ -21,9 +24,12 @@ const SetData = (e) =>{
     const url = e.target.url.value;
     // const imgFile = e.target.imgFile.value;
     const select = categories;
-     alert('you add To System')
-    props.setdata({FirstName,LastName,address,Starttime,Endtime,number,sentence,url,select})
+    
+    
+    
 
+    props.setdata({FirstName,LastName,address,Starttime,Endtime,number,sentence,url,select})
+    history("/");
 //   props.setdata(dataOfOwners)
 
 }
@@ -34,8 +40,9 @@ const SetData = (e) =>{
     const [categories, setCategory] = useState('');
     return (
         <>
-
+            
             <div onSubmit={SetData} className="coverForm">
+           
 
                 <form  className="form" >
                     <div className="titleAddOwners" >
@@ -84,12 +91,13 @@ const SetData = (e) =>{
 
                     <label>your image</label>
                     <input type="file"  name="imgFile" />
-
+                    
                     <button  className="btnAddOwners">Add to Website</button>
                    
 
                 </form>
             </div>
+           
 
 
 

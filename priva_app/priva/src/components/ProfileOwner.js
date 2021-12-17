@@ -11,17 +11,19 @@ import { MdDeleteForever } from 'react-icons/md'
 import { GrUpdate } from 'react-icons/gr'
 import { TiArrowBackOutline } from 'react-icons/ti'
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProfileOwner = () => {
   const { id } = useParams()
-  const [oneOwner, setOneOwner] = useState("")
+  const [oneOwner, setOneOwner] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:8080/uniqueOwner/${id}`)
       .then(res => res.json())
       .then(data => setOneOwner(data))
       .catch(err => console.log(err))
-  }, [])
+  })
 
   const DeleteOwner = () => {
     fetch(`http://localhost:8080/deleteOwner/${id}`, {
@@ -30,7 +32,10 @@ const ProfileOwner = () => {
       .then(res => res.json())
       .then( alert('you delete from sysyem'))
       .catch(err => console.log(err))
-      // setOneOwner(data)
+      
+      navigate("/")
+      
+
   }
 
   return (
@@ -42,7 +47,7 @@ const ProfileOwner = () => {
 
               return <div>
                 <div className="imgProfile">
-                  <img src={logo} />
+                  <img src={logo} alt="logo_img"/>
 
                 </div>
                 <div className="detailsProfile">

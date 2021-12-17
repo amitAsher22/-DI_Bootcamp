@@ -2,12 +2,14 @@ import Home from './components/Home';
 import AddOwners from './components/AddOwners';
 import ProfileOwner from './components/ProfileOwner';
 import './App.css';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
+
 
 
 
 
 function App() {
+  
   return (
    
     <div >
