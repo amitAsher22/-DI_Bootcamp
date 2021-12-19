@@ -9,9 +9,8 @@ app.use(express.json())
 app.use(cors())
 
 
-app.get('/amir', (req, res) => {
-  res.send("<h1>amir</h1>")
-})
+
+
 
 
 app.delete('/deleteOwner/:id', (req, res) => {

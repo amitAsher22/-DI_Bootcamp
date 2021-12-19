@@ -9,15 +9,25 @@ const db = require('knex')({
     }
   });
 
+const updateOwner = (id , changes)=>{
+  return (
+    db('privaowners')
+    .where({owner_id : id})
+    .update(changes )
+    .then(()=>{
+      return getIdOwner(id)
+    })
+    )
+}
+
+
 const deleteOwner = (id)=>{
   return db('privaowners')
   .where('privaowners.owner_id' , id)
   .del()
 }
 
-// knex('accounts')
-//   .where('activated', false)
-//   .del()
+
 
 const getIdOwner = (id)=>{
   return db('privaowners')
@@ -47,7 +57,8 @@ const getIdOwner = (id)=>{
    getOwners,
    setOwners,
    getIdOwner,
-   deleteOwner
+   deleteOwner,
+   updateOwner
   }
  
 

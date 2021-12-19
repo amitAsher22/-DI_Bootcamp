@@ -1,4 +1,5 @@
 // import {OWNERS} from './types'
+import {SETOWNERS ,GETOWNERS} from './types'
 
 
 
@@ -11,7 +12,7 @@ export const getOwners = (owners) => async(dispatch) =>{
         })
         const data = await res.json()
         dispatch({
-            type:'GETOWNERS',
+            type:GETOWNERS,
             payload:data
         })
         
@@ -20,15 +21,13 @@ export const getOwners = (owners) => async(dispatch) =>{
         console.log(error);
         
     }
-    // return{
-    //    type: OWNERS,
-    //     payload: owners
-    // }
+  
 }
 
 
 
 export const setOwners = (value)=> async (dispatch) =>{
+   
    try {
        const res = await fetch("http://localhost:8080/setOwners",{
            method:"post",
@@ -37,7 +36,7 @@ export const setOwners = (value)=> async (dispatch) =>{
        })
             const data = await res.json()
             dispatch({
-                type:'SETOWNERS',
+                type:SETOWNERS,
                 payload:data
             })
    } 

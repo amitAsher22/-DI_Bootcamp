@@ -23,7 +23,7 @@ const ProfileOwner = () => {
       .then(res => res.json())
       .then(data => setOneOwner(data))
       .catch(err => console.log(err))
-  })
+  },[])
 
   const DeleteOwner = () => {
     fetch(`http://localhost:8080/deleteOwner/${id}`, {
@@ -34,9 +34,14 @@ const ProfileOwner = () => {
       .catch(err => console.log(err))
       
       navigate("/")
-      
 
   }
+
+const updateOwner = () =>{
+ 
+  
+}
+
 
   return (
     <>
@@ -45,8 +50,8 @@ const ProfileOwner = () => {
           oneOwner.length ? (
             oneOwner.map(owner => {
 
-              return <div>
-                <div className="imgProfile">
+              return <div key={owner.owner_id}>
+                <div className="imgProfile" >
                   <img src={logo} alt="logo_img"/>
 
                 </div>
@@ -78,8 +83,10 @@ const ProfileOwner = () => {
         <button className="btnwebsite">
           <Link to="/"><TiArrowBackOutline /></Link>
         </button>
-
-        <button className="btnUpdate"><GrUpdate /></button>
+         
+        <Link to={`/update/${id}`}>   <button className="btnUpdate" onClick={updateOwner}><GrUpdate /> </button>
+          </Link>
+       
       </div>
     </>
   )
