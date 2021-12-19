@@ -5,43 +5,47 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import { setOwners, getOwners } from '../reducers/action'
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom"
 
 
 
 
 const AddOwners = (props) => {
-  
-   //////////////////////////////////////////////////////// hooks single owner
-   const [firstNameOwner, setfirstNameOwner] = useState("")
-    const [lastNameOwner , setlastNameOwner] = useState("")
-    const [addressOwner , setAddressOwner] = useState("")
-    const [startTimeOwner , setstartTimeOwner] = useState("")
-    const [endTimeOwner , setEndTimeOwner] = useState("")
-    const [phoneOwner , setphoneOwnerOwner] = useState("")
-    const [descriptionOwner , setdescriptionOwner] = useState("")
-    const [websiteOwner , setwebsiteOwner ] = useState("")
-    const [categoryOwner , setCategoryOwner] = useState("")
-   //////////////////////////////////////////////////////// hooks single owner
+    const { id } = useParams()
+    useEffect(() => {
 
-    // const dataFromProps = props.singleOwner; 
-    // console.log(dataFromProps);
+        if (window.location.pathname == `/update/${id}`) {
+            setfirstNameOwner(props.singleOwner.name_of_business_owner)
+            setlastNameOwner(props.singleOwner.lastname_of_business_owner)
+            setAddressOwner(props.singleOwner.address)
+            setstartTimeOwner(props.singleOwner.activity_time)
+            setEndTimeOwner(props.singleOwner.activity_time_end)
+            setphoneOwnerOwner(props.singleOwner.phone)
+            setdescriptionOwner(props.singleOwner.business_opening_sentence)
+            setwebsiteOwner(props.singleOwner.address_home_page)
+            setCategoryOwner(props.singleOwner.category_of_business_owner)
 
- 
-  useEffect(()=>{
-    setfirstNameOwner(props.singleOwner.name_of_business_owner)
-    setlastNameOwner(props.singleOwner.lastname_of_business_owner)
-    setAddressOwner(props.singleOwner.address)
-    setstartTimeOwner(props.singleOwner.activity_time)
-    setEndTimeOwner(props.singleOwner.activity_time_end)
-    setphoneOwnerOwner(props.singleOwner.phone)
-    setdescriptionOwner(props.singleOwner.business_opening_sentence)
-    setwebsiteOwner(props.singleOwner.address_home_page)
-    setCategoryOwner(props.singleOwner.category_of_business_owner)
-
-  },[props.singleOwner])
+        } if (window.location.href) {
+            { }
+        }
 
 
 
+    }, [props.singleOwner])
+
+
+    ////////////////////////////////////////////////////// hooks single owner
+    const [firstNameOwner, setfirstNameOwner] = useState("")
+    const [lastNameOwner, setlastNameOwner] = useState("")
+    const [addressOwner, setAddressOwner] = useState("")
+    const [startTimeOwner, setstartTimeOwner] = useState("")
+    const [endTimeOwner, setEndTimeOwner] = useState("")
+    const [phoneOwner, setphoneOwnerOwner] = useState("")
+    const [descriptionOwner, setdescriptionOwner] = useState("")
+    const [websiteOwner, setwebsiteOwner] = useState("")
+    const [categoryOwner, setCategoryOwner] = useState("")
+
+    //////////////////////////////////////////////////////// hooks single owner
     const history = useNavigate();
     const [categories, setCategory] = useState('');
 
@@ -65,7 +69,6 @@ const AddOwners = (props) => {
     }
 
 
-
     return (
         <>
 
@@ -81,7 +84,7 @@ const AddOwners = (props) => {
                     </div>
 
                     <label>your first name of business</label>
-                    <input defaultValue={firstNameOwner}  type="text" name="firstName" placeholder="First Name" />
+                    <input defaultValue={firstNameOwner} type="text" name="firstName" placeholder="First Name" />
 
                     <label>your last name of business</label>
                     <input defaultValue={lastNameOwner} type="text" name="LastName" placeholder="Last Name" />
@@ -104,7 +107,7 @@ const AddOwners = (props) => {
                     <input defaultValue={websiteOwner} type="url" name="url" placeholder="https://example.com" />
 
                     <label>your category</label>
-                    <select defaultValue={categoryOwner} onChange={(e) => {
+                    <select defaultValue={categoryOwner} onChange={(e) => {  ////    
                         const value1 = e.target.value
                         setCategory(value1)
                     }}>
@@ -121,7 +124,7 @@ const AddOwners = (props) => {
                     <input type="file" name="imgFile" />
 
                     <button className="btnAddOwners">Add to Website</button>
-                    <button className="btnAddOwners">update</button>
+
 
 
                 </form>
@@ -130,9 +133,9 @@ const AddOwners = (props) => {
         </>
     )
 
+
+
 }
-
-
 
 
 const mapStateToProps = (state) => {

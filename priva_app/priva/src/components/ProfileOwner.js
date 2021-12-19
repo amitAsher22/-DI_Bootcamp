@@ -38,7 +38,7 @@ const ProfileOwner = () => {
   }
 
 const updateOwner = () =>{
- 
+  navigate(`/update/${id}`)
   
 }
 
@@ -84,8 +84,8 @@ const updateOwner = () =>{
           <Link to="/"><TiArrowBackOutline /></Link>
         </button>
          
-        <Link to={`/update/${id}`}>   <button className="btnUpdate" onClick={updateOwner}><GrUpdate /> </button>
-          </Link>
+         <button className="btnUpdate" onClick={updateOwner}><GrUpdate /> </button>
+         {/* <Link to={`/update/${id}`}>  ///// </Link> */}
        
       </div>
     </>
