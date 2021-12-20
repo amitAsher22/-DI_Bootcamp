@@ -9,7 +9,9 @@ app.use(express.json())
 app.use(cors())
 
 
-
+app.put('/setOwners' , (req,res)=>{
+        console.log("work");
+})
 
 
 
