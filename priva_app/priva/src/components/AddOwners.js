@@ -105,7 +105,10 @@ const updateOwner =()=>{
   const website = updateWebsite
   const category = updateCategory
  
-  updateowners({firstName,lastName,address ,startTime ,EndTime ,phone ,text ,website , category})
+  const dataAll = {firstName,lastName,address ,startTime ,EndTime ,phone ,text ,website , category , id}
+  
+  
+ props.updateowners(dataAll)
    
 }
 
@@ -191,7 +194,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         setdata: (data) => dispatch(setOwners(data)),
         getOwners: () => dispatch(getOwners()),
-        updateowners: (dataOwner) => dispatch(updateowners(dataOwner))
+        updateowners: (dataOwner) => dispatch(updateowners(dataOwner ))
     }
 }
 

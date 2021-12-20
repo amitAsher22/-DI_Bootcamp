@@ -9,8 +9,12 @@ app.use(express.json())
 app.use(cors())
 
 
-app.put('/setOwners' , (req,res)=>{
-        console.log("work");
+app.put('/UpdateOwner/:id' , (req,res)=>{
+       const body = req.body
+      //  const id = req.params.id
+       DB.updateOwnerId(body)
+       .then(data => console.log(data))
+       .catch(err => console.log(err))
 })
 
 

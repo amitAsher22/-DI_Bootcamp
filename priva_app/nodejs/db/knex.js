@@ -9,16 +9,28 @@ const db = require('knex')({
     }
   });
 
-const updateOwner = (id , changes)=>{
-  return (
-    db('privaowners')
-    .where({owner_id : id})
-    .update(changes )
-    .then(()=>{
-      return getIdOwner(id)
-    })
-    )
-}
+
+  const updateOwnerId = ( data)=>{
+    console.log(typeof data.startTime);
+     return db('privaowners')
+     .where({ owner_id: data.id })
+  .update( {"name_of_business_owner":data.firstName ,"lastname_of_business_owner":data.lastName , "address": data.address ,"activity_time":data.startTime ,"activity_time_end":data.EndTime, "phone":data.phone , "business_opening_sentence":data.text,"address_home_page": data.website  ,"category_of_business_owner":data.category})
+  
+  }
+
+
+
+
+// const updateOwner = (id , changes)=>{
+//   return (
+//     db('privaowners')
+//     .where({owner_id : id})
+//     .update(changes )
+//     .then(()=>{
+//       return getIdOwner(id)
+//     })
+//     )
+// }
 
 
 const deleteOwner = (id)=>{
@@ -58,7 +70,8 @@ const getIdOwner = (id)=>{
    setOwners,
    getIdOwner,
    deleteOwner,
-   updateOwner
+  //  updateOwner,
+   updateOwnerId
   }
  
 

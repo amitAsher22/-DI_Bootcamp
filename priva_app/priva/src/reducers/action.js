@@ -3,6 +3,7 @@ import {SETOWNERS ,GETOWNERS , UPDATEOWNER} from './types'
 
 
 
+
 export const getOwners = (owners) => async(dispatch) =>{
     try {
         const res = await fetch("http://localhost:8080/allowners",{
@@ -47,11 +48,13 @@ export const setOwners = (value)=> async (dispatch) =>{
 }
 
 
-export const updateowners = (dataOwner )=> async (dispatch)=>{
+export const updateowners = (dataOwner )=> async (dispatch)=>{ 
+    
   
     try {
-        const res = await fetch(`http://localhost:8080/UpdateOwner`,{
-            method:"PUT",
+        
+        const res = await fetch(`http://localhost:8080/UpdateOwner/:${dataOwner.id}`,{
+            method:"put",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(dataOwner)
         })
