@@ -53,8 +53,8 @@ export const updateowners = (dataOwner )=> async (dispatch)=>{
   
     try {
         
-        const res = await fetch(`http://localhost:8080/UpdateOwner/:${dataOwner.id}`,{
-            method:"put",
+        const res = await fetch(`http://localhost:8080/update_owner/${dataOwner.id}`,{
+            method:"PUT",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(dataOwner)
         })
