@@ -75,9 +75,18 @@ svg{
     background-color: rgb(245, 0, 0);
 }
 
+.btnBin{
+    cursor: pointer;
+}
+
 .btnUpdate{
     background-color: rgb(9, 24, 243);
 }
+
+.btnUpdate{
+    cursor: pointer;
+}
+
 .btnwebsite{
     background-color: rgb(235, 211, 0);
 }

@@ -11,10 +11,13 @@ import { useParams } from "react-router-dom"
 
 
 const AddOwners = (props) => {
-    const { id } = useParams()
+    const { id } = useParams();
+   
+
     useEffect(() => {
 
-        if (window.location.pathname == `/update/${id}`) {
+        if (window.location.pathname === `/update/${id}`) {
+            setBtn('none')
             setfirstNameOwner(props.singleOwner.name_of_business_owner)
             setlastNameOwner(props.singleOwner.lastname_of_business_owner)
             setAddressOwner(props.singleOwner.address)
@@ -24,9 +27,13 @@ const AddOwners = (props) => {
             setdescriptionOwner(props.singleOwner.business_opening_sentence)
             setwebsiteOwner(props.singleOwner.address_home_page)
             setCategoryOwner(props.singleOwner.category_of_business_owner)
-
-        } if (window.location.href) {
-            { }
+           
+           
+        } if (window.location.pathname === '/addOwners') {
+            setBtn('block')
+            setBtn2('none')
+            {}
+            
         }
 
 
@@ -48,7 +55,11 @@ const AddOwners = (props) => {
     //////////////////////////////////////////////////////// hooks single owner
     const history = useNavigate();
     const [categories, setCategory] = useState('');
+    const [btn , setBtn] = useState("")
+    const [btn2 , setBtn2] = useState("")
 
+   
+    
     const SetData = (e) => {
         e.preventDefault()
         const FirstName = e.target.firstName.value;
@@ -122,8 +133,10 @@ const AddOwners = (props) => {
 
                     <label>your image</label>
                     <input type="file" name="imgFile" />
-
-                    <button className="btnAddOwners">Add to Website</button>
+                    
+                    
+                     <button className="btnAddOwners" style={{display:btn}} >Add to Website</button>
+                    <button className="btnUpdateOwner" style={{display:btn2}} >update</button>
 
 
 
