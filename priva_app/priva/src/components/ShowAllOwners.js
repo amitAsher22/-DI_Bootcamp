@@ -13,10 +13,13 @@ import {FcVoicePresentation} from 'react-icons/fc'
 
 
 const ShowAllOwners = () => {
+  // const searchWord =props.search;
 
     const [owners, setOwners] = useState("");
+   
 
-    useEffect(  () => {
+
+    useEffect( () => {
          fetch("http://localhost:8080/allowners")
             .then(res => res.json())
             .then(data => setOwners(data))
@@ -24,8 +27,7 @@ const ShowAllOwners = () => {
     }, [])
 
 
-
-
+  
     return (
 
         <div >

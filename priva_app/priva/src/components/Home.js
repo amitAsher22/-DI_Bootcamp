@@ -5,12 +5,14 @@ import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import { getOwners} from '../reducers/action'
 import ShowAllOwners from "./ShowAllOwners";
+import { useState } from "react";
 
 
 
 
 
 const Home =()=>{
+   
         return(
             <div >
             <div className="coverPic">
@@ -20,8 +22,9 @@ const Home =()=>{
                 </div>
                 <div className="mainInput">
                     <h1 className="titleH1">Everything around you</h1>
-                    <input className="inputSearch" placeholder="Look for everything around you"/>
+                    <input  className="inputSearch" placeholder="Look for everything around you"/>
                 </div>
+                
             </div>
             <div className="coverOwners">
             <Link to="/addOwners">
@@ -33,7 +36,7 @@ const Home =()=>{
                 <Categories/>
             </div>
             <div  >
-                <ShowAllOwners />
+                <ShowAllOwners  />
             </div>
             </div>
         )

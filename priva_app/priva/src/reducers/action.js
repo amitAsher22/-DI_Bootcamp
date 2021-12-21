@@ -30,7 +30,7 @@ export const getOwners = (owners) => async(dispatch) =>{
 export const setOwners = (value)=> async (dispatch) =>{
    
    try {
-       const res = await fetch("http://localhost:8080/setOwners/:id",{
+       const res = await fetch("http://localhost:8080/setOwners",{
            method:"post",
            headers:{"content-type":"application/json"},
            body:JSON.stringify(value)

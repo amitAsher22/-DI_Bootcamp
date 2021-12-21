@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom"
 
 
 
+
 const AddOwners = (props) => {
     const { id } = useParams();
   
@@ -109,7 +110,7 @@ const updateOwner =()=>{
   
   
  props.updateowners(dataAll)
-   
+ history("/");
 }
 
 
@@ -172,7 +173,12 @@ const updateOwner =()=>{
                      <button   className="btnAddOwners" style={{display:btn}} >Add to Website</button>
                      
                 </form>
+                <div className="coverBtnUpdate">
                 <button onClick={updateOwner} className="btnUpdateOwner" style={{display:btn2}} >update</button>
+                </div>
+                 
+               
+               
               
                 
             </div>
