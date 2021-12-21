@@ -12,7 +12,7 @@ import { useState } from "react";
 
 
 const Home =()=>{
-   
+   const [search , setSearch] = useState("")
         return(
             <div >
             <div className="coverPic">
@@ -22,7 +22,7 @@ const Home =()=>{
                 </div>
                 <div className="mainInput">
                     <h1 className="titleH1">Everything around you</h1>
-                    <input  className="inputSearch" placeholder="Look for everything around you"/>
+                    <input onChange={(e)=>{setSearch(e.target.value)}} className="inputSearch" placeholder="Look for everything around you"/>
                 </div>
                 
             </div>
@@ -36,7 +36,7 @@ const Home =()=>{
                 <Categories/>
             </div>
             <div  >
-                <ShowAllOwners  />
+                <ShowAllOwners search={search} />
             </div>
             </div>
         )

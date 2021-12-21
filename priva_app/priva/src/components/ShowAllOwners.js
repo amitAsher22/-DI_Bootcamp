@@ -12,19 +12,43 @@ import {FcVoicePresentation} from 'react-icons/fc'
 
 
 
-const ShowAllOwners = () => {
-  // const searchWord =props.search;
-
-    const [owners, setOwners] = useState("");
-   
-
+const ShowAllOwners = (props) => {
+  
+ 
+    const [owners, setOwners] = useState([]);
+    const [owners2, setOwners2] = useState([]);
 
     useEffect( () => {
-         fetch("http://localhost:8080/allowners")
-            .then(res => res.json())
-            .then(data => setOwners(data))
+      fetch("http://localhost:8080/allowners")
+         .then(res => res.json())
+         .then(data => {
+           console.log(data);
+         
+             setOwners(data)
+             setOwners2(data)
+           
+          
+         })
 
-    }, [])
+ }, [])
+
+   
+    useEffect( () => {
+         
+              if(props.search.trim().length >= 3){
+                  const filterAll =  owners2.filter(item => {
+                        return item.name_of_business_owner.toLowerCase().includes(props.search.toLowerCase())
+                   })
+                   setOwners(filterAll)  
+                  
+              }
+              else {
+                setOwners(owners2)
+              }
+             
+         
+
+    }, [props.search])
 
 
   
@@ -52,8 +76,9 @@ const ShowAllOwners = () => {
           ):<div>wait for card....create loder</div>}
             
           </div>
-         
+          
         </div>
+       
     )
 }
 
