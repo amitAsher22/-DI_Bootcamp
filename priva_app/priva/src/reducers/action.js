@@ -28,7 +28,7 @@ export const getOwners = (owners) => async(dispatch) =>{
 
 
 export const setOwners = (value)=> async (dispatch) =>{
-   
+      console.log("setowners action!!!!!!",value);
    try {
        const res = await fetch("http://localhost:8080/setOwners",{
            method:"post",
@@ -50,11 +50,10 @@ export const setOwners = (value)=> async (dispatch) =>{
 
 export const updateowners = (dataOwner )=> async (dispatch)=>{ 
     
-  
     try {
         
-        const res = await fetch(`http://localhost:8080/update_owner/${dataOwner.id}`,{
-            method:"PUT",
+        const res = await fetch(`http://localhost:8080/update_owner`,{
+            method:"post",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(dataOwner)
         })

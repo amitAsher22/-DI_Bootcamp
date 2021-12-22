@@ -9,8 +9,9 @@ app.use(express.json())
 app.use(cors())
 
 
-app.put('/update_owner/:id' , (req,res)=>{
+app.post('/update_owner' , (req,res)=>{
        const body = req.body
+       console.log("body server",body);
       //  const id = req.params.id
        DB.updateOwnerId(body)
        .then(data => console.log('after saving the db', data))
@@ -46,6 +47,7 @@ app.get('/allowners', (req, res) => {
 
 
 app.post('/setOwners', (req, res) => {
+  console.log("req.body serverrrr",req.body);
   DB.setOwners(req.body)
     .then(data => res.json(data))
     .catch(err => res.json({ msa: err }))
