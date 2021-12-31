@@ -5,55 +5,96 @@ import {FaStreetView} from 'react-icons/fa'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import {BiCategory} from 'react-icons/bi'
 import {GoClock} from 'react-icons/go'
-import {MdFilePresent} from 'react-icons/md'
+import {MdFilePresent, MdSettingsInputAntenna} from 'react-icons/md'
 import {FcVoicePresentation} from 'react-icons/fc'
+import { connect } from "react-redux";
+
+
+
+
 
 
 
 
 
 const ShowAllOwners = (props) => {
-  
  
-    const [owners, setOwners] = useState([]);
+    const [owners, setOwners1] = useState([]);
     const [owners2, setOwners2] = useState([]);
-
+    const [owners3, setOwners3] = useState([]);
+    // console.log("nirrrr",props.dataCategory);
+    // const [category , setCategories] = useState([])
+    // setCategories(props.dataCategory)
+    
+    
     useEffect( () => {
       fetch("http://localhost:8080/allowners")
          .then(res => res.json())
          .then(data => {
-           console.log(data);
          
-             setOwners(data)
+             setOwners1(data)
              setOwners2(data)
-           
-          
+             setOwners3(data)
+            
+            
+  
          })
 
  }, [])
 
-   
+
+
     useEffect( () => {
-         
+     
+               
               if(props.search.trim().length >= 3){
                   const filterAll =  owners2.filter(item => {
-                        return item.name_of_business_owner.toLowerCase().includes(props.search.toLowerCase())
+                    console.log(item);
+                    console.log(item);
+                        return item.name_of_business_owner.toLowerCase().includes(props.search.toLowerCase()) 
+                      
                    })
-                   setOwners(filterAll)  
+                   setOwners1(filterAll)  
                   
               }
+              
               else {
-                setOwners(owners2)
+                setOwners1(owners2)
+                
               }
              
          
 
     }, [props.search])
 
+   
+useEffect(()=>{
+    if(props.dataCategory){
+      const x =  owners3.filter(item =>{
+        return item.category_of_business_owner.includes(props.dataCategory)
+   
+      })
+      setOwners1(x) 
+    }else{
+      setOwners1(owners2)
+    }
 
-  
+},[props.dataCategory])
+
+
+
+    // if(props.dataCategory){
+    //   const x =  owners2.filter(item =>{
+    //     return item.category_of_business_owner.includes(props.dataCategory)
+   
+    //   })
+    //   console.log(x)
+    // }else{
+    //   console.log('dons work');
+    // }
+    
+
     return (
-
         <div >
           <div className="coverDiv" >
           {owners.length ? (
@@ -76,6 +117,7 @@ const ShowAllOwners = (props) => {
           ):<div>wait for card....create loder</div>}
             
           </div>
+         
           
         </div>
        
@@ -84,4 +126,18 @@ const ShowAllOwners = (props) => {
 
 
 
-export default ShowAllOwners
+const mapStateToProps = (state) => {
+  
+  return {
+    dataCategory : state.category
+  }
+}
+
+
+
+
+
+
+
+
+export default connect(mapStateToProps, null)(ShowAllOwners)

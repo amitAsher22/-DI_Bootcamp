@@ -1,5 +1,5 @@
 // import {OWNERS} from './types'
-import {SETOWNERS ,GETOWNERS , UPDATEOWNER} from './types'
+import {SETOWNERS ,GETOWNERS , UPDATEOWNER , CATEGORY} from './types'
 
 
 
@@ -10,8 +10,10 @@ export const getOwners = (owners) => async(dispatch) =>{
             method:"get",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(owners)
-        })
+        }) 
+       
         const data = await res.json()
+        console.log("this is data from action/reducers" , data);
         dispatch({
             type:GETOWNERS,
             payload:data
@@ -28,7 +30,7 @@ export const getOwners = (owners) => async(dispatch) =>{
 
 
 export const setOwners = (value)=> async (dispatch) =>{
-      console.log("setowners action!!!!!!",value);
+  
    try {
        const res = await fetch("http://localhost:8080/setOwners",{
            method:"post",
@@ -49,9 +51,7 @@ export const setOwners = (value)=> async (dispatch) =>{
 
 
 export const updateowners = (dataOwner )=> async (dispatch)=>{ 
-    
     try {
-        
         const res = await fetch(`http://localhost:8080/update_owner`,{
             method:"post",
             headers:{"content-type":"application/json"},
@@ -71,3 +71,21 @@ export const updateowners = (dataOwner )=> async (dispatch)=>{
     }
 
 }
+
+
+
+export const setcategory = (category) =>{
+    return{
+        type:CATEGORY,
+        payload:category
+    }
+}
+
+
+// export const showData = (text)=>{
+//     return{
+//         type:'INSERT',
+//         payload: text
+//     }
+
+// }

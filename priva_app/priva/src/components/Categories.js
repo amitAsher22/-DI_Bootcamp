@@ -1,62 +1,94 @@
-import React from "react";
+import React  from "react";
 import food from '../images/food.png'
 import fix from '../images/fix.png'
 import out from '../images/out.png'
 import buy from '../images/buy.png'
 import travel from '../images/travel.png'
 import help from '../images/help.png'
-import { Link } from "react-router-dom";
+
+import { connect } from "react-redux";
+import {setcategory} from '../reducers/action'
 
 
-class Categories extends React.Component{
 
-render(){
-    return(
-        <>
-          <div className="CategoriesSection">
-              <ul>
-                  <li>
-                  <div className="divCategories">
-                      <img className="imgCategories" src={food} alt="food_img"/>
-                      <Link to={"/"}><span>food</span></Link>
-                  </div>
-                  </li>
-                  <li>
-                  <div className="divCategories">
-                      <img className="imgCategories" src={fix} alt="fix_img"/>
-                      <Link to={"/"}><span>fix</span></Link>
-                  </div>
-                  </li>
-                  <li>
-                  <div className="divCategories">
-                      <img className="imgCategories" src={out} alt="out_img"/>
-                      <Link to={"/"}><span>out</span></Link>
-                  </div>
-                  </li>
-                  <li>
-                  <div className="divCategories">
-                      <img className="imgCategories" src={buy} alt="buy_img" />
-                      <Link to={"/"}><span>buy</span></Link>
-                  </div>
-                  </li>
-                  <li>
-                  <div className="divCategories">
-                      <img className="imgCategories" src={travel} alt="travel_img"/>
-                      <Link to={"/"}><span>travel</span></Link>
-                  </div>
-                  </li>
-                  <li>
-                  <div className="divCategories">
-                      <img className="imgCategories" src={help} alt="help_img"/>
-                      <Link to={"/"}><span>help</span></Link>
-                  </div>
-                  </li>
-              </ul>
-          </div>
-        </>
-    )
+
+
+function Categories(props) {
+
+    const nameCategory = (event)=>{
+        // console.log(event.target.id);
+        props.dataFromCategory(event.target.id)
+
+    }
+   
+        return (
+                <>
+                    <div className="CategoriesSection">
+                        <ul>
+                            <li>
+                                <div className="divCategories"  >
+                                    <img  className="imgCategories" src={food} alt="food_img"/>
+                                    <span onClick={nameCategory} id="food" >food</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="divCategories">
+                                    <img className="imgCategories" src={fix} alt="fix_img" />
+                                    <span onClick={nameCategory} id="Fix">fix</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="divCategories">
+                                    <img className="imgCategories" src={out} alt="out_img" />
+                                   <span onClick={nameCategory} id="Out">out</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="divCategories">
+                                    <img className="imgCategories" src={buy} alt="buy_img" />
+                                   <span onClick={nameCategory} id="Buy">buy</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="divCategories">
+                                    <img className="imgCategories" src={travel} alt="travel_img" />
+                                    <span onClick={nameCategory} id="Travel">travel</span> 
+                                </div>
+                            </li>
+                            <li>
+                                <div className="divCategories">
+                                    <img className="imgCategories" src={help} alt="help_img" />
+                                    <span onClick={nameCategory} id="Help">help</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </>
+        
+        
+        )
+    
+    
 }
 
+
+
+const mapStateToProps = (state) => {
+    // console.log("state from categories ",state.category);
+    return {
+        
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+       
+        dataFromCategory : (category)=> dispatch(setcategory(category))
+    }
 }
 
-export default Categories
+
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories)

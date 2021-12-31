@@ -1,9 +1,10 @@
-import {SETOWNERS ,GETOWNERS , UPDATEOWNER} from './types'
+import {SETOWNERS ,GETOWNERS , UPDATEOWNER , CATEGORY} from './types'
 
 const initState = {
     AllOwners : {},
     getOwners : {},
-    updateowner: {}
+    updateowner: {},
+    category:''
 
 }
 
@@ -14,7 +15,9 @@ export const reducer = (state = initState, action={} ) => {
             case GETOWNERS:
                 return{...state , getOwners:action.payload}
             case UPDATEOWNER:
-                return{...state , updateowner :action.payload}    
+                return{...state , updateowner :action.payload}   
+                case CATEGORY:
+                    return{...state , category :action.payload}  
             default:
                 return {...state }
     }

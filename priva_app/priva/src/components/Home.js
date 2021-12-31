@@ -11,31 +11,35 @@ import { useState } from "react";
 
 
 
+
 const Home =()=>{
    const [search , setSearch] = useState("")
+  
+
+   
         return(
-            <div >
+          
+            <div>
             <div className="coverPic">
                 <div className="header">
                 <button className="btnRegister"> Login / LogOut</button>
                 <img src={logo} alt="logo pic" className="sizeLogo"/>
                 </div>
                 <div className="mainInput">
-                    <h1 className="titleH1">Everything around you</h1>
+                    <h1 className="titleH1">Everything around you </h1>
                     <input onChange={(e)=>{setSearch(e.target.value)}} className="inputSearch" placeholder="Look for everything around you"/>
                 </div>
-                
             </div>
             <div className="coverOwners">
             <Link to="/addOwners">
-                 <button className="btnOwners">Add Owners</button>
+                 <button className="btnOwners">Add Owners </button>
             </Link>
                
             </div>
             <div className="coverCategories">
-                <Categories/>
+                <Categories />
             </div>
-            <div  >
+            <div>
                 <ShowAllOwners search={search} />
             </div>
             </div>
@@ -47,7 +51,7 @@ const Home =()=>{
 
 const mapStateToProps = (state) =>{
     return{
-      dataOwners : state.getOwners
+    //   dataOwners : state.getOwners
     } 
    }
     const mapDispatchToProps =(dispatch) =>{
