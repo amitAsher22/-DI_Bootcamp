@@ -166,3 +166,30 @@ ul{
   flex-direction: row;
  
 }
+
+
+/* //////////////////////////////////////////////login-logout google */
+
+.inlineDiv{
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  
+  
+  font-family: 'Licorice', cursive;
+  
+}
+
+.removeMargin{
+  margin: 0;
+  text-shadow: 1px 6px #f6f6f6;
+  color: rgb(246, 171, 31);
+ 
+}
+.removeMargin2{
+  margin: 0;
+  font-size: 40px;
+ color: Teal;
+ text-shadow: -3px -3px #f6f6f6;
+
+}

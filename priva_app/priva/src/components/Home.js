@@ -6,38 +6,29 @@ import { connect } from "react-redux";
 import { getOwners} from '../reducers/action'
 import ShowAllOwners from "./ShowAllOwners";
 import { useState } from "react";
-import {GoogleLogin , Googleogout} from 'react-google-login'
+import {GoogleLogin , GoogleLogout } from 'react-google-login'
 
-
-
-
-// const   responseGoogle = response =>{
-//     console.log(response);
-//     setShowLoginButton(false)
-//     setShowLogoutButton(true)
-// }
-
-// const onSignoutSuccess = ()=>{
-//     alert('you have been signed out successFully')
-//    setShowLoginButton(true)
-//     setShowLogoutButton(false)
-// }
 
 
 const Home =()=>{
     const [search , setSearch] = useState("")
     const [showLoginButton , setShowLoginButton] = useState(true) 
     const [showLogoutButton , setShowLogoutButton] = useState(false) 
+    const [fullNameUser , setFullName] = useState('')
     const  responseGoogle = (response )=>{
-        console.log(response);
-        setShowLoginButton(false)
+        setFullName(response.profileObj.name)
+       setShowLoginButton(false)
         setShowLogoutButton(true)
+       
+        
+        
     }
     
     const onSignoutSuccess = ()=>{
-        alert('you have been signed out successFully')
-       setShowLoginButton(true)
-       setShowLogoutButton(false)
+        alert('you have been signed out successFully' )
+        setShowLoginButton(true)
+        setShowLogoutButton(false)
+        setFullName(false)
     }
     
 
@@ -45,6 +36,9 @@ const Home =()=>{
        
             <div>
             <div className="coverPic">
+            
+           
+            
                 <div className="header">
                 {showLoginButton ?
                 <GoogleLogin 
@@ -52,20 +46,25 @@ const Home =()=>{
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     buttonText="Login with google"
+                  
 
-                /> 
-                : null
+                /> :  null
+                
                 }
                 {showLogoutButton ? 
-                <Googleogout
+                    <GoogleLogout
                     clientId="779329735420-d9rshfee9j5bk5gjj12gref0ejagsjg0.apps.googleusercontent.com"
-                    buttonText="LoginOut"
-                    onSuccess={onSignoutSuccess}
-                /> 
-                : null 
+                    onLogoutSuccess={onSignoutSuccess}
+                    buttonText="logOut"
+                > 
+                </GoogleLogout> : null
+                
+               
                 }
-              
+                {fullNameUser ? <span className="inlineDiv"><p className="removeMargin2"><h1 className="removeMargin">welcome</h1>{fullNameUser}</p> </span> : null}
+
                 <img src={logo} alt="logo pic" className="sizeLogo"/>
+                
                 </div>
                 <div className="mainInput">
                     <h1 className="titleH1">Everything around you </h1>
