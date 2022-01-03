@@ -19,9 +19,7 @@ const Home =()=>{
         setFullName(response.profileObj.name)
        setShowLoginButton(false)
         setShowLogoutButton(true)
-       
-        
-        
+  
     }
     
     const onSignoutSuccess = ()=>{
@@ -30,15 +28,10 @@ const Home =()=>{
         setShowLogoutButton(false)
         setFullName(false)
     }
-    
 
         return(
-       
             <div>
             <div className="coverPic">
-            
-           
-            
                 <div className="header">
                 {showLoginButton ?
                 <GoogleLogin 
@@ -46,8 +39,6 @@ const Home =()=>{
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     buttonText="Login with google"
-                  
-
                 /> :  null
                 
                 }
@@ -58,13 +49,9 @@ const Home =()=>{
                     buttonText="logOut"
                 > 
                 </GoogleLogout> : null
-                
-               
                 }
                 {fullNameUser ? <span className="inlineDiv"><p className="removeMargin2"><h1 className="removeMargin">welcome</h1>{fullNameUser}</p> </span> : null}
-
                 <img src={logo} alt="logo pic" className="sizeLogo"/>
-                
                 </div>
                 <div className="mainInput">
                     <h1 className="titleH1">Everything around you </h1>
@@ -74,8 +61,7 @@ const Home =()=>{
             <div className="coverOwners">
             <Link to="/addOwners">
                  <button className="btnOwners">Add Owners </button>
-            </Link>
-               
+            </Link> 
             </div>
             <div className="coverCategories">
                 <Categories />

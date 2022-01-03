@@ -20,18 +20,6 @@ const db = require('knex')({
 
 
 
-// const updateOwner = (id , changes)=>{
-//   return (
-//     db('privaowners')
-//     .where({owner_id : id})
-//     .update(changes )
-//     .then(()=>{
-//       return getIdOwner(id)
-//     })
-//     )
-// }
-
-
 const deleteOwner = (id)=>{
   return db('privaowners')
   .where('privaowners.owner_id' , id)
@@ -45,16 +33,13 @@ const getIdOwner = (id)=>{
   .select("*")
   .from("privaowners")
   .where('owner_id' ,id )
-  
-  
 }
 
 
   const getOwners = ()=>{
      return db('privaowners')
        .select('*')
-       .from('privaowners')
-       
+       .from('privaowners')   
   }
 
 
@@ -69,7 +54,6 @@ const getIdOwner = (id)=>{
    setOwners,
    getIdOwner,
    deleteOwner,
-  //  updateOwner,
    updateOwnerId
   }
  
